@@ -30,6 +30,12 @@ module.exports = {
             }
         })
 
+    },
+
+    // quando o servidor é iniciado, ele recupera as informações do backup 
+    start(data) {
+        let postsBackup = JSON.parse(data);
+        this.posts = postsBackup;
     }
 
 }
