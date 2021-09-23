@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Fredoka One', cursive;
+}
+
+:root{
+    --bg: rgb(44, 44, 44);
+    --bg-itens: rgb(152, 84, 173);
+    --txt: rgb(152, 84, 173);
+    --txt-itens: rgb(255, 255, 255);
+}
+
+.welcome, .lista{
+    width: 100%;
+    min-width: 301px;
+    height: 100vh;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: var(--bg);
+    color: var(--txt);
+    overflow: auto;
+}
+
+.welcome{
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.welcome button{
+    padding: 1rem 3rem;
+    border-radius: 12px;
+    border: 1px solid #aaa;
+    color: rgb(89, 87, 92);;
+}
+
+.lista h4{
+    text-align: center;
+    color: var(--txt);
+    margin-bottom: 20px;
+}
+
+.lista .newItem{
+    display: flex;
+    flex-direction: row;
+}
+
+.lista input, textarea{
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid var(--bg-itens);
+    box-sizing: border-box;
+    color: var(--txt);
+    margin-bottom: 15px;
+}
+
+textarea{
+    height: 110px;
+
+    
+}
+
+.lista button{
+    padding: 0.8rem 1rem;
+    box-sizing: border-box;
+    color: var(--txt);
+    flex-wrap: wrap;
+    margin-left: 5px;
+    margin-bottom: 15px;
+}
+
+.elements{
+    width: 100%;
+}
+
+.elements p{
+    width: 80%;
+    padding: 2rem;
+    background-color: var(--bg-itens);
+    color: var(--txt-itens);
+    border-radius: 8px;
+    margin: 5px 0;
+}
+
+
+

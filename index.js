@@ -14,13 +14,18 @@ app.get("/all", (req, res) => {
 
 app.post("/new", (req, res) => {
 
-    let titulo = req.body.titulo;
-    let conteudo = req.body.conteudo;
+    let content = req.body.conteudo;
 
-    posts.newPost(titulo, conteudo);
+    posts.newPost(content);
 
     res.send("Post adicionado");
 
+})
+
+app.post("/delete", (req,res) => {
+    let id = req.body.id;
+    posts.deletePost(id);
+    res.send("elemento deletado");
 })
 
 app.listen(PORT, () => {

@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", () => {
     updatePosts();
 })
 
+
+const FECHAR = "<span style='float: right;' onclick = 'fechar(this)' >x</span>";
+
 function updatePosts() {
 
     fetch("http://192.168.0.162:5000/all").then(res => {
@@ -11,40 +14,48 @@ function updatePosts() {
             let posts = JSON.parse(json);
 
             posts.forEach(post => {
-                let postElement = ` <div id=${post.id}>
-                                <h3>${post.titulo}</h3>
-                                <p>${post.conteudo}</p>
-                </div>`
+                let postElement =
+
+                    `<div id=${post.id}>
+                        <p> ${post.conteudo} ${FECHAR} </p> 
+                    </div>`
 
                 postElements += postElement;
 
             })
 
-            document.getElementById("posts").innerHTML = postElements;
+            atualizar(postElements);
         })
     })
 }
 
-function newPost() {
+function newPost(conteudo) {
 
-    let titulo = document.getElementById("title").value;
-    let conteudo = document.getElementById("content").value;
+    let post = { conteudo: conteudo };
 
-    if (titulo != '' && conteudo != '') {
-
-        let post = { titulo, conteudo };
-        const options = {
-            method: "POST",
-            headers: new Headers({ "content-type": 'application/json' }),
-            body: JSON.stringify(post)
-        }
-
-        fetch("http://192.168.0.162:5000/new", options).then(res => {
-            updatePosts();
-        })
+    const options = {
+        method: "POST",
+        headers: new Headers({ "content-type": 'application/json' }),
+        body: JSON.stringify(post)
     }
 
-    document.getElementById('title').value = '';
-    document.getElementById("content").value = '';
+    fetch("http://192.168.0.162:5000/new", options).then(res => {
+        updatePosts();
+    })
 }
 
+function deletePost(e){
+
+    let post = { id: e.id };
+
+    const options = {
+        method: "POST",
+        headers: new Headers({ "content-type": 'application/json' }),
+        body: JSON.stringify(post)
+    }
+
+    fetch("http://192.168.0.162:5000/delete", options).then(res => {
+        updatePosts();
+    })
+
+}

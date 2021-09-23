@@ -1,24 +1,31 @@
 module.exports = {
 
     posts: [
-        {
-            id: "asdasfsadfsa",
-            titulo: "esse é um titulo teste",
-            conteudo: "esse é o conteudo do teste",
-        }
+
     ],
 
-    getAll(){
+    getAll() {
         return this.posts;
     },
 
-    newPost(titulo, conteudo){
-        this.posts.push({id: generateID(),titulo,conteudo});
+    newPost(conteudo) {
+        this.posts.push({ id: generateID(), conteudo: conteudo });
     },
+
+    deletePost(id){
+        let i;
+        this.posts.forEach(post => {
+            if(post.id == id) {
+                i = this.posts.indexOf(post);
+                this.posts.splice(i,1);
+            }
+        })
+
+    }
 
 }
 
 
-function generateID(){
+function generateID() {
     return Math.random().toString(36).substr(2, 9);
 }
