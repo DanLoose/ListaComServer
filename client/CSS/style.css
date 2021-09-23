@@ -11,7 +11,7 @@
     --txt-itens: rgb(255, 255, 255);
 }
 
-.welcome, .lista{
+.lista{
     width: 100%;
     min-width: 301px;
     height: 100vh;
@@ -22,19 +22,6 @@
     background-color: var(--bg);
     color: var(--txt);
     overflow: auto;
-}
-
-.welcome{
-    align-items: center;
-    justify-content: space-evenly;
-    text-align: center;
-}
-
-.welcome button{
-    padding: 1rem 3rem;
-    border-radius: 12px;
-    border: 1px solid #aaa;
-    color: rgb(89, 87, 92);;
 }
 
 .lista h4{
