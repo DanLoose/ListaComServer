@@ -20,7 +20,7 @@ function updatePosts() {
             posts.forEach(post => {
 
                 //armazena o html dos elementos q serao renderizados em atualizar
-                postElements = setPosts(post);
+                postElements += setPosts(post);
 
             })
 

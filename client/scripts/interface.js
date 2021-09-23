@@ -25,15 +25,15 @@ function setPosts(post) {
 
     const FECHAR = "<span style='float: right;' onclick = 'fechar(this)' >x</span>";
 
-    let postElements = '';
+    let myElements = '';
     let postElement =
 
         `<div id=${post.id}>
             <p> ${post.conteudo} ${FECHAR} </p> 
         </div>`
 
-    postElements += postElement;
-    return postElements;
+    myElements += postElement;
+    return myElements;
 }
 
 // atualiza o container que contem os elementos enviados do servidor
