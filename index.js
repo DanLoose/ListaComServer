@@ -62,7 +62,6 @@ function setBackup() {
     fs.writeFile("./backup/lista.txt", myPosts, (err) => {
         if (err) throw err;
     })
-
 }
 
 // ao iniciar o servidor, o servidor vai ser recarregado a partir do arquivo de backup do computador

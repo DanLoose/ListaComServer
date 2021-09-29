@@ -4,11 +4,13 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 
+const URL = "http://10.10.146.169:5000/";
+
 function updatePosts() {
 
     // envia uma requisição para o servidor recuperar os elementos armazenados
     // o retorno da requisição é o array "posts" que armazena os elementos do servidor
-    fetch("http://192.168.0.162:5000/all").then(res => {
+    fetch(URL + "all").then(res => {
         return res.json().then(json => {
 
             let postElements = '';
@@ -42,7 +44,7 @@ function newPost(conteudo) {
     }
 
     // envia uma requisição para o servidor enviando as informações do novo post q sera armazenado
-    fetch("http://192.168.0.162:5000/new", options).then(res => {
+    fetch(URL + "new", options).then(res => {
 
         // atualiza a pagina depois de armazenar o objeto
         updatePosts();
@@ -62,10 +64,14 @@ function deletePost(e) {
     }
 
     // envia uma requisição para o servidor com o id do elmeento a ser excluido
-    fetch("http://192.168.0.162:5000/delete", options).then(res => {
+    fetch(URL + "delete", options).then(res => {
 
         // atualiza a pagina apos a exclusao do elemento
         updatePosts();
     })
 
 }
+
+setInterval(() => {
+    updatePosts();
+}, 1000);
